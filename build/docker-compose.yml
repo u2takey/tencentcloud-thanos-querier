@@ -1,0 +1,29 @@
+version: '3.3'
+services:
+  tq:
+    image: tq-thanos
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "10901:10901"
+    restart: always
+    networks:
+      main:
+        aliases:
+          - tq
+
+  querier:
+    image: quay.io/thanos/thanos:master-2019-12-23-39f8623b
+    ports:
+      - "9090:9090"
+    command: 'query --http-address="0.0.0.0:9090" --grpc-address="0.0.0.0:9091"  --store=tq:10901 --log.level=debug'
+    restart: always
+    networks:
+      main:
+        aliases:
+          - querier
+
+networks:
+  main:
+    driver: bridge

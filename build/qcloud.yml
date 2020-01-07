@@ -1,0 +1,13 @@
+credential:
+  secret_id: xx
+  secret_key: yy
+metrics:
+  cpu_use:
+    namespace: QCE/CVM
+    metric_name: CPUUsage
+  ingress:
+    namespace: QCE/CVM
+    metric_name: WanIntraffic
+  outgress:
+    namespace: QCE/CVM
+    metric_name: WanOuttraffic
