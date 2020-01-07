@@ -10,4 +10,5 @@ make run
 
 visit http://localhost:9090/
 
-![image](./doc/exampl.png)
+![image](./doc/example-1.png)
+![image](./doc/example-2.png)
